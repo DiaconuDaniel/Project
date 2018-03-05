@@ -5,7 +5,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConnectionManager {
- private String user;
+
+    private String user;
     private String pass;
     private String url;
 
@@ -28,5 +29,5 @@ public class ConnectionManager {
     public Connection getConenction() throws SQLException {
         return DriverManager.getConnection(url, user, pass);
     }
-    
+
 }

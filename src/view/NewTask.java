@@ -25,7 +25,7 @@ public class NewTask extends javax.swing.JFrame {
     public NewTask() {
         initComponents();
 
-       populate();
+        populate();
 
         jButton1.addActionListener(ev -> {
             try {
@@ -35,9 +35,9 @@ public class NewTask extends javax.swing.JFrame {
             }
         });
         jButton2.addActionListener(ev -> back());
-        
-         jTextField3_subject.setDocument(new NewTask.JTextFieldLimit(100));
-        
+
+        jTextField3_subject.setDocument(new NewTask.JTextFieldLimit(100));
+
         setVisible(true);
         setLocationRelativeTo(null);
     }
@@ -54,17 +54,15 @@ public class NewTask extends javax.swing.JFrame {
                 jComboBox1_assigned.addItem(user2);
             }
         }
-        
-         jComboBox1.setModel(new DefaultComboBoxModel(new String[]{"NEW", "IN_PROGRESS", "DONE"}));
+
+        jComboBox1.setModel(new DefaultComboBoxModel(new String[]{"NEW", "IN_PROGRESS", "DONE"}));
     }
 
     public void addTask() throws ParseException {
         String subject = jTextField3_subject.getText();
 
-       
-       
-        String status =  (String) jComboBox1.getSelectedItem(); 
-         
+        String status = (String) jComboBox1.getSelectedItem();
+
         Date date = jDateChooser1.getDate();
         java.sql.Date sqlDate = new java.sql.Date(date.getTime());
 
@@ -81,7 +79,7 @@ public class NewTask extends javax.swing.JFrame {
         dispose();
         new MainWindow();
     }
-    
+
     class JTextFieldLimit extends PlainDocument {
 
         private int limit;
