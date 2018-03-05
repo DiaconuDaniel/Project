@@ -11,7 +11,7 @@ public class ConnectionManager {
     private String url;
 
     private ConnectionManager() {
-        this.url = "jdbc:mysql://localhost/gestionarea sarcinilor";
+        this.url = "jdbc:mysql://localhost/task_management";
         this.user = "root";
         this.pass = "";
 
