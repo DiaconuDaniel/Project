@@ -1,4 +1,4 @@
-package view;
+ package view;
 
 import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
 import com.sun.xml.internal.ws.api.message.Packet;
@@ -26,8 +26,7 @@ import javax.swing.table.TableModel;
 import javax.swing.text.MaskFormatter;
 import model.Task;
 import model.User;
-import serivce.LoggedUserService;
-
+import service.LoggedUserService;
 import service.MainService;
 
 public class Search extends javax.swing.JFrame {
@@ -55,7 +54,7 @@ public class Search extends javax.swing.JFrame {
     }
 
     public void populateAssignedTo() {
-        List<User> users = MainService.getInstance().getAllUsers();
+        List<User> users = MainService.getAllUsers();
         User user = LoggedUserService.getInstance().getUser();
         jComboBox1.addItem(user);
 
@@ -83,7 +82,7 @@ public class Search extends javax.swing.JFrame {
         Date date = jDateChooser2.getDate();
         java.sql.Date sqlDate = new java.sql.Date(date.getTime());
 
-        List<Task> getAll = MainService.getInstance().getSearchAll(name, text, sqlDate, name.toString());
+        List<Task> getAll = MainService.getSearchAll(name, text, sqlDate, name.toString());
 
         for (int count = 0; count < getAll.size(); count++) {
             Task task = getAll.get(count);

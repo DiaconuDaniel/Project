@@ -17,7 +17,7 @@ import javax.swing.text.BadLocationException;
 import javax.swing.text.PlainDocument;
 import model.Task;
 import model.User;
-import serivce.LoggedUserService;
+import service.LoggedUserService;
 import service.MainService;
 
 public class NewTask extends javax.swing.JFrame {
@@ -43,7 +43,7 @@ public class NewTask extends javax.swing.JFrame {
     }
 
     public void populate() {
-        List<User> users = MainService.getInstance().getAllUsers();
+        List<User> users = MainService.getAllUsers();
         User user = LoggedUserService.getInstance().getUser();
         jComboBox1_assigned.addItem(user);
 
@@ -70,7 +70,7 @@ public class NewTask extends javax.swing.JFrame {
 
         String userName = jComboBox1_assigned.getSelectedItem().toString();
 
-        MainService.getInstance().addTask(subject, status, sqlDate, userName);
+        MainService.addTask(subject, status, sqlDate, userName);
 
         JOptionPane.showMessageDialog(rootPane, "Task added! ");
         dispose();

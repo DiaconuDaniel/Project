@@ -18,20 +18,12 @@ public class TaskDao {
     private PreparedStatement stmt1, stmt2, stmt3, stmt4, stmt5;
 
     public TaskDao(Connection con) {
-        try {
-            this.con = con;
-            stmt1 = con.prepareStatement("INSERT INTO task VALUES (NULL,?,?,?,?)");
-            stmt2 = con.prepareStatement("SELECT * FROM task WHERE user_id = ? ORDER BY dueDate DESC ");
-            stmt3 = con.prepareStatement("SELECT user.id AS user_id, user.name, task.id as task_id, task.dueDate, task.subject, task.status FROM task join user on user.id = task.user_id WHERE user_id = ? AND lower(subject) like lower (?) AND dueDate = DATE(?) ORDER BY dueDate DESC");
-            stmt4 = con.prepareStatement("SELECT id, dueDate, subject, status FROM task");
-            stmt5 = con.prepareStatement("UPDATE task INNER JOIN user on task.user_id = user.id SET task.dueDate = ?, task.subject = ?, task.status = ?, task.user_id = ? WHERE task.id = ?");
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        this.con = con;
     }
 
     public void addTask(Task task) throws SQLException {
+        stmt1 = con.prepareStatement("INSERT INTO task VALUES (NULL,?,?,?,?)");
+
         stmt1.setDate(1, task.getDueDate());
         stmt1.setString(2, task.getSubiect());
         stmt1.setString(3, task.getStatus());
@@ -40,6 +32,8 @@ public class TaskDao {
     }
 
     public List<Task> getTasksByUserId(Integer userId) throws SQLException {
+        stmt2 = con.prepareStatement("SELECT * FROM task WHERE user_id = ? ORDER BY dueDate DESC ");
+
         stmt2.setInt(1, userId);
 
         List<Task> tasks = new ArrayList<Task>();
@@ -61,6 +55,7 @@ public class TaskDao {
     }
 
     public List<Task> search(Integer user_id, String subject, Date date) throws SQLException {
+        stmt3 = con.prepareStatement("SELECT user.id AS user_id, user.name, task.id as task_id, task.dueDate, task.subject, task.status FROM task join user on user.id = task.user_id WHERE user_id = ? AND lower(subject) like lower (?) AND dueDate = DATE(?) ORDER BY dueDate DESC");
         stmt3.setInt(1, user_id);
         stmt3.setString(2, "%" + subject + "%");
         stmt3.setDate(3, date);
@@ -87,6 +82,7 @@ public class TaskDao {
     }
 
     public List<Task> populateTask() throws SQLException {
+        stmt4 = con.prepareStatement("SELECT id, dueDate, subject, status FROM task");
 
         List<Task> tasks = new ArrayList<>();
 
@@ -105,6 +101,8 @@ public class TaskDao {
     }
 
     public void updateTask(Date dueDate, String subject, String status, Integer userId, Integer id) throws SQLException {
+        stmt5 = con.prepareStatement("UPDATE task INNER JOIN user on task.user_id = user.id SET task.dueDate = ?, task.subject = ?, task.status = ?, task.user_id = ? WHERE task.id = ?");
+
         stmt5.setDate(1, dueDate);
         stmt5.setString(2, subject);
         stmt5.setString(3, status);

@@ -29,8 +29,7 @@ import javax.swing.text.PlainDocument;
 import model.Task;
 import model.User;
 import org.omg.PortableInterceptor.USER_EXCEPTION;
-import serivce.LoggedUserService;
-
+import service.LoggedUserService;
 import service.MainService;
 
 public class WindowSearch extends javax.swing.JFrame {
@@ -58,7 +57,7 @@ public class WindowSearch extends javax.swing.JFrame {
 
     public void populateAssignedTo() {
 
-        List<User> users = MainService.getInstance().getAllUsers();
+        List<User> users = MainService.getAllUsers();
         User user = LoggedUserService.getInstance().getUser();
         jComboBox2_ASSIGNED.addItem(user);
 
@@ -86,7 +85,7 @@ public class WindowSearch extends javax.swing.JFrame {
         String status = (String) jComboBox1_STATUS.getSelectedItem();
 
         String assig2 = jComboBox2_ASSIGNED.getSelectedItem().toString();
-        MainService.getInstance().update(sqlDate, subject, status, assig2, idTask);
+        MainService.update(sqlDate, subject, status, assig2, idTask);
 
         JOptionPane.showMessageDialog(rootPane, "The task was saved!");
         dispose();

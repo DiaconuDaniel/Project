@@ -1,5 +1,5 @@
 
-package serivce;
+package service;
 
 import model.User;
 

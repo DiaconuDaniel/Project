@@ -42,6 +42,7 @@ public class MainWindow extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -61,7 +62,13 @@ public class MainWindow extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/hello1.jpg"))); // NOI18N
+
+        jMenuBar1.setForeground(new java.awt.Color(255, 0, 102));
+        jMenuBar1.setFont(new java.awt.Font("Yu Gothic Medium", 3, 14)); // NOI18N
+
         jMenu4.setText("My Tasks");
+        jMenu4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
         jMenuItem2.setText("Tasks");
         jMenu4.add(jMenuItem2);
@@ -72,6 +79,7 @@ public class MainWindow extends javax.swing.JFrame {
         jMenuBar1.add(jMenu4);
 
         jMenu5.setText("Search");
+        jMenu5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
         jMenuItem3.setText("Search");
         jMenu5.add(jMenuItem3);
@@ -79,6 +87,7 @@ public class MainWindow extends javax.swing.JFrame {
         jMenuBar1.add(jMenu5);
 
         jMenu1.setText("Exit");
+        jMenu1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
         jMenuItemFo.setText("Logout");
         jMenu1.add(jMenuItemFo);
@@ -91,11 +100,13 @@ public class MainWindow extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -103,6 +114,7 @@ public class MainWindow extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;

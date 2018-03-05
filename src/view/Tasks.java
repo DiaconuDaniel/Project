@@ -126,7 +126,7 @@ public class Tasks extends javax.swing.JFrame {
         dtm.setColumnIdentifiers(header);
         jTable1.setModel(dtm);
 
-        List<Task> allTasksForCurrentUser = MainService.getInstance().getAllTasksForCurrentUser();
+        List<Task> allTasksForCurrentUser = MainService.getAllTasksForCurrentUser();
 
         for (int count = 0; count < allTasksForCurrentUser.size(); count++) {
             Task task = allTasksForCurrentUser.get(count);
