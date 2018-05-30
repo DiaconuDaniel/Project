@@ -6,8 +6,16 @@
           <option name="url" value="https://github.com/DiaconuDaniel/project.git" />
           <option name="userName" value="" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="https://github.com/DiaconuDaniel/Project-StudentCourse.git" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="https://github.com/DiaconuDaniel/Project-Student.git" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
       </list>
     </option>
-    <option name="cloneParentDir" value="C:\Users\daniel.diaconu\Desktop\POO\ANewProject" />
+    <option name="cloneParentDir" value="C:\Users\daniel.diaconu\Desktop\POO\Project" />
   </component>
 </application>
